@@ -84,18 +84,17 @@ button{font:inherit;cursor:pointer;border:0}.phone{width:min(390px,100%);height:
 </div>
 <script>
 const chats = [
- {id:'gavi',name:'Gavian',emoji:'⁠♡',time:'now',preview:'Good morning, Sunshine! Have you eaten?',messages:[['in','Good morning, Sunshine! Have you eaten?'],['out','Not yet, baru bangun hehe'],['in','Wanna grab a brunch together? Let me pick you up, ya?'],['out','Eh sebentar, aku belum mandi...'],['in','Nggak apa-apa. You don’t look any less pretty to me, Sweetheart']]},
- {id:'shasa',name:'Shanette',emoji:'🦋',time:'9:32 PM',preview:'HAHAHAHA STOP',messages:[['in','gue punya cerita 😭'],['out','apaan lagi?'],['in','HAHAHAHA STOP'],['out','LO YANG MULAI CERITA WOI']]},
- {id:'group',name:'the usual suspects 🫂',emoji:'🫧',time:'8:15 PM',preview:'Junan: siapa yang pesen kopi?',messages:[['in','Junan: siapa yang pesen kopi?'],['in','Ajuy: dudu aku, Mas'],['out','Gavi: bukan saya'],['in','Junan: LAH TERUS SIAPA ANJIR']]},
- {id:'unknown',name:'Unknown',emoji:'🌙',time:'Yesterday',preview:'can we talk?',messages:[['in','can we talk?'],['out','about what?'],['in','us. if you still want to.']]}
-];
-const calls=[['Gavian','🖤','Outgoing · Mobile','9:41 PM'],['Shanette','🦋','Incoming · Mobile','Yesterday'],['Unknown','🌙','Missed call','Monday']];
-const contacts=[['Junan','🎸'],['Ajuy','🧋'],['Biel','🧸']];
+ {id:'gavi',name:'Gavian',emoji:'🐹',time:'Now',preview:'Good morning, Sunshine! Have you eaten?',messages:[['in','Good morning, Sunshine! Have you eaten?'],['out','Not yet, baru bangun hehe'],['in','Wanna grab a brunch together? Let me pick you up, ya?'],['out','Eh sebentar, aku belum mandi...'],['in','Nggak apa-apa. You don’t look any less pretty to me, Sweetheart'], ['in', 'I am on my way, ya. See you soon, Shanette!']]},
+ {id:'ajuy',name:'Julian',emoji:'🐺',time:'Now',preview:'cik, dimana?',messages:[['in','cik, dimana?'],['out','lagi makan sama gavi, kenapa?'],['in','biel ntar kesini lagi gak? mau gue ajak mencing lagi'],['out','wkwkwk kecanduan lo mancing ama biel?'],['in', 'iya, biel gampang diboongin soalnya jadinya seru]]},
+ {id:'biel',name:'Biel',emoji:'⛄',time:'Yesterday',preview:'miss can i go to your house again?',messages:[['in','miss can i go to your house again?'],['out','of course you can! kenapa biel tiba-tiba mau ke rumah miss lagi, nak?'],['in','i like spending time with om ajuy! he is so funny!'],['in','and also mbah akung, he spoiled me soo much i reaaally like being his grandson!!!']]},
+ {id:'papah',name:'papah',emoji:'🐻',time:'Yesterday',preview:'Nik..,, plg.e jam brp.. ? Nik lgi sm Biel apa lgi sm Gavi tok...?',messages:[['in','Nik..,, plg.e jam brp.. ? Nik lgi sm Biel apa lgi sm Gavi tok yha .. ?'],['out','biel masih sekolah pah, nanti kalo udah pulang mau main ke rumah katanya'],['in','OK Nik,, Pph siap kn JAJAN FAFORID Biel dlu...,,'],['out','hah jajan apa emang? kita punya di rumah?'], ['in','Ada...,, Biel doyan Mkan PUTU AYU,, Nik...,,👍🏻']]}
+                                                                                                                                                                                                                            ];
+const calls=[['Gavian','🐹','Outgoing · Mobile','9:41 PM'],['Ajuy','🐺','Incoming · Mobile','Yesterday'],['Papah','🐻','Missed call','Monday']];
+const contacts=[['Biel','⛄'],['Ajuy 2','🐺'],['Zaneta (Pacar Ajuy)','🌸']];
 const photos=[['🌅','sunset'],['🫶','us'],['☕','coffee'],['🌷','flowers'],['🌃','late night'],['🐈','little guy']];
 const posts=[
- {name:'shanette.jpg',emoji:'🦋',time:'2 hours ago',photo:'🌷',caption:'some days feel a little softer than others ♡',likes:128},
- {name:'gav.elio',emoji:'🖤',time:'Yesterday',photo:'🌃',caption:'late night drives, no destination.',likes:89},
- {name:'theusuals',emoji:'🫧',time:'3 days ago',photo:'☕',caption:'proof that we did, in fact, leave the house.',likes:204}
+ {name:'julianganendra',emoji:'🐺',time:'2 hours ago',photo:'https://pin.it/3bBwQuYcf',caption:'enak banget bisa langsung bobok soalnya sprei udah digantiin papah',likes:128},
+ {name:'gavianwidjaja',emoji:'🐹',time:'Yesterday',photo:'https://pin.it/1MqNJNnR0',caption:'Long time no see!'',likes:89},
 ];
 let currentChat=null;
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('chatView').classList.remove('active');document.getElementById(id).classList.add('active');}
