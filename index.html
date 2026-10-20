@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f1f7">
+<title>My AU Phone</title>
+<style>
+:root{--ink:#20202a;--muted:#777783;--glass:rgba(255,255,255,.72);--pink:#f6dce8;--lav:#e8e2fa;--blue:#dceafa}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#f7e5ee,#e6e4fb 55%,#dceefa);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);padding:18px}
+button{font:inherit;cursor:pointer;border:0}.phone{width:min(390px,100%);height:min(820px, calc(100dvh - 36px));min-height:590px;border:8px solid #17171d;border-radius:48px;background:#f8f7fb;overflow:hidden;position:relative;box-shadow:0 24px 70px #3333;isolation:isolate}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:112px;height:30px;border-radius:22px;background:#101014;z-index:10}
+.status{position:absolute;top:12px;left:25px;right:24px;display:flex;justify-content:space-between;font-size:12px;font-weight:700;z-index:11;pointer-events:none}
+.wallpaper{position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,#fff9 0 8%,transparent 30%),radial-gradient(circle at 80% 65%,#fff8 0 10%,transparent 34%),linear-gradient(145deg,#f2d6e5,#d9d7f7 55%,#cde7f1)}
+.screen{position:absolute;inset:0;padding:58px 17px 24px;overflow:auto;display:none}.screen.active{display:block}.lock{display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;text-shadow:0 2px 12px #3335}.lock-date{margin-top:46px;font-size:17px;font-weight:600}.lock-time{font-size:76px;line-height:1.08;font-weight:250;letter-spacing:-4px}.lock-note{margin-top:30px;background:#ffffffa8;color:#30303a;text-shadow:none;border-radius:18px;padding:12px 14px;width:100%;text-align:left;font-size:13px;backdrop-filter:blur(12px)}.unlock{margin-top:auto;margin-bottom:18px;background:#ffffff65;color:#fff;padding:11px 20px;border-radius:24px;border:1px solid #fff8}
+.home-head{display:flex;justify-content:space-between;align-items:center;margin:5px 3px 24px;color:#292735}.greeting{font-size:22px;font-weight:750}.small{font-size:12px;color:#696879}.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:23px 10px}.app{display:flex;flex-direction:column;align-items:center;gap:6px;background:transparent;color:#292735;font-size:11px}.app-icon{width:55px;height:55px;border-radius:15px;display:grid;place-items:center;font-size:27px;box-shadow:0 5px 12px #51446b20}.wa{background:linear-gradient(#70e19a,#29bb73)}.phoneapp{background:linear-gradient(#8cf0a1,#36c66b)}.photos{background:#fff}.social{background:linear-gradient(135deg,#ffca83,#f15ca4,#7769ec)}.notes{background:#fff2b5}.settings{background:#dce2eb}.widget{margin:25px 1px 0;background:#ffffffa8;backdrop-filter:blur(16px);border-radius:22px;padding:16px}.widget strong{font-size:14px}.widget p{font-size:12px;color:#6e6b7b;line-height:1.5;margin-bottom:0}.dock{position:absolute;bottom:17px;left:17px;right:17px;display:flex;justify-content:space-around;background:#ffffff80;backdrop-filter:blur(20px);padding:12px 8px;border-radius:25px}.dock .app-icon{width:48px;height:48px}.topbar{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px}.back{background:#e9e8ef;border-radius:50%;width:34px;height:34px;font-size:20px}.topbar h2{font-size:20px;margin:0}.pill{background:#e9e8ef;padding:7px 11px;border-radius:16px;font-size:12px}.search{width:100%;padding:11px 13px;border:0;border-radius:12px;background:#e9e8ef;margin-bottom:13px;font-size:14px;outline:none}.section-label{font-size:12px;color:var(--muted);font-weight:700;margin:15px 3px 8px}.chatrow,.callrow{display:flex;align-items:center;gap:11px;padding:12px 4px;border-bottom:1px solid #e7e5ed;width:100%;text-align:left;background:transparent;color:inherit}.avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#f5d1e4,#d4d4f5);font-size:22px;flex-shrink:0}.rowmain{flex:1;min-width:0}.rowname{font-weight:700;font-size:14px}.preview{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:4px}.time{font-size:10px;color:var(--muted)}.chat-screen{display:none;position:absolute;inset:0;background:#f6f5fa;z-index:4;padding:58px 14px 20px}.chat-screen.active{display:flex;flex-direction:column}.chat-head{display:flex;align-items:center;gap:9px;padding-bottom:12px;border-bottom:1px solid #e5e3eb}.chat-head .avatar{width:37px;height:37px;font-size:17px}.chat-head button{background:transparent;font-size:20px}.messages{flex:1;overflow:auto;display:flex;flex-direction:column;gap:9px;padding:16px 1px}.bubble{max-width:82%;padding:10px 12px;border-radius:17px;font-size:13px;line-height:1.4;white-space:pre-wrap}.bubble.in{background:#fff;align-self:flex-start;border-bottom-left-radius:5px}.bubble.out{background:#b9efc3;align-self:flex-end;border-bottom-right-radius:5px}.compose{display:flex;gap:7px;padding-top:10px}.compose input{flex:1;min-width:0;border:1px solid #dedce5;border-radius:20px;padding:10px 13px;outline:none}.send{background:#27b765;color:white;border-radius:50%;width:39px;height:39px;font-weight:800}.call-actions{display:flex;gap:9px;margin:18px 0}.call-actions button{flex:1;padding:12px 5px;border-radius:13px;background:#e9e8ef;font-size:12px}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.photo{aspect-ratio:1;border-radius:10px;overflow:hidden;background:linear-gradient(145deg,#f7d7e7,#d6d6f8);display:grid;place-items:center;font-size:32px;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.photo span{position:absolute;bottom:5px;right:6px;font-size:12px;text-shadow:0 1px 4px #000}.hint{font-size:12px;color:var(--muted);line-height:1.5;margin:12px 2px}.post{background:white;border-radius:17px;padding:13px;margin-bottom:14px}.post-user{display:flex;align-items:center;gap:9px;font-weight:700;font-size:13px}.post-user .avatar{width:35px;height:35px;font-size:17px}.post-image{margin-top:10px;aspect-ratio:1.08;border-radius:12px;background:linear-gradient(140deg,#f8d6e8,#d4d6fa,#c9e7ef);display:grid;place-items:center;font-size:60px}.post p{font-size:13px;line-height:1.45}.like{background:transparent;padding:4px 0;color:#ed5790;font-weight:700}.tabbar{position:sticky;bottom:-24px;margin:14px -17px -24px;padding:12px 17px 20px;background:#ffffffed;display:flex;justify-content:space-around;border-top:1px solid #eee;font-size:20px}.tabbar button{background:transparent}.bottom-home{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:115px;height:4px;background:#292932;border-radius:5px;z-index:12;opacity:.75}.toast{position:absolute;z-index:20;top:58px;left:50%;transform:translateX(-50%);background:#272631;color:white;padding:10px 14px;border-radius:20px;font-size:12px;display:none;white-space:nowrap}
+@media(max-height:650px){.phone{height:calc(100dvh - 20px);min-height:0}.screen{padding-top:50px}.app-grid{gap:13px 8px}.app-icon{width:48px;height:48px}.lock-time{font-size:64px}}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="wallpaper"></div><div class="island"></div>
+  <div class="status"><span id="statusTime">9:41</span><span>●●● ▰ ▰</span></div>
+  <div class="toast" id="toast"></div>
+
+  <section class="screen active lock" id="lock">
+    <div class="lock-date" id="lockDate">Tuesday, October 20</div><div class="lock-time" id="lockTime">9:41</div>
+    <div class="lock-note"><strong>Messages</strong><br><span id="lockPreview">you have a new message ♡</span></div>
+    <button class="unlock" onclick="showScreen('home')">Tap to unlock ↗</button>
+  </section>
+
+  <section class="screen" id="home">
+    <div class="home-head"><div><div class="small" id="todayLabel">Tuesday, October 20</div><div class="greeting">Good evening ♡</div></div><div class="avatar" style="width:43px;height:43px">🫧</div></div>
+    <div class="app-grid">
+      <button class="app" onclick="openApp('whatsapp')"><span class="app-icon wa">☎</span>WhatsApp</button>
+      <button class="app" onclick="openApp('phone')"><span class="app-icon phoneapp">📞</span>Phone</button>
+      <button class="app" onclick="openApp('gallery')"><span class="app-icon photos">🌈</span>Photos</button>
+      <button class="app" onclick="openApp('social')"><span class="app-icon social">◎</span>Instagram</button>
+      <button class="app" onclick="toast('Notes app coming soon ♡')"><span class="app-icon notes">📝</span>Notes</button>
+      <button class="app" onclick="toast('Settings are just for the aesthetic ✨')"><span class="app-icon settings">⚙️</span>Settings</button>
+      <button class="app" onclick="openApp('whatsapp')"><span class="app-icon" style="background:#d9eaff">💬</span>Messages</button>
+      <button class="app" onclick="toast('No new notifications ♡')"><span class="app-icon" style="background:#fff0c8">🔔</span>通知</button>
+    </div>
+    <div class="widget"><strong>♡ little moments</strong><p>a tiny corner of their world.<br>open an app to explore the AU.</p></div>
+    <div class="dock">
+      <button class="app" onclick="openApp('phone')"><span class="app-icon phoneapp">📞</span></button>
+      <button class="app" onclick="openApp('whatsapp')"><span class="app-icon wa">☎</span></button>
+      <button class="app" onclick="openApp('social')"><span class="app-icon social">◎</span></button>
+      <button class="app" onclick="openApp('gallery')"><span class="app-icon photos">🌈</span></button>
+    </div>
+  </section>
+
+  <section class="screen" id="whatsapp">
+    <div class="topbar"><button class="back" onclick="showScreen('home')">‹</button><h2>WhatsApp</h2><button class="pill" onclick="toast('Demo app · edit the sample data in index.html')">Edit</button></div>
+    <input class="search" placeholder="Search" oninput="filterChats(this.value)">
+    <div class="section-label">CHATS</div><div id="chatList"></div>
+  </section>
+
+  <section class="chat-screen" id="chatView">
+    <div class="chat-head"><button onclick="closeChat()">‹</button><div class="avatar" id="chatAvatar">🦋</div><div style="flex:1"><div class="rowname" id="chatName">Character</div><div class="small">tap here · AU chat</div></div><button onclick="toast('Voice call is a visual demo ☎')">☎</button><button onclick="toast('Video call is a visual demo')">▣</button></div>
+    <div class="messages" id="messages"></div>
+    <form class="compose" onsubmit="sendMessage(event)"><input id="messageInput" placeholder="Message" autocomplete="off"><button class="send" type="submit">↑</button></form>
+  </section>
+
+  <section class="screen" id="phone">
+    <div class="topbar"><button class="back" onclick="showScreen('home')">‹</button><h2>Phone</h2><button class="pill" onclick="toast('Edit sample contacts in index.html')">Edit</button></div>
+    <div class="call-actions"><button onclick="toast('Calling… (visual demo only)')">☎ Call</button><button onclick="toast('FaceTime is a visual demo')">▣ FaceTime</button><button onclick="toast('Keypad coming soon')">⌗ Keypad</button></div>
+    <div class="section-label">RECENTS</div><div id="callList"></div>
+    <div class="section-label">CONTACTS</div><div id="contactList"></div>
+  </section>
+
+  <section class="screen" id="gallery">
+    <div class="topbar"><button class="back" onclick="showScreen('home')">‹</button><h2>Photos</h2><button class="pill" onclick="toast('Add your own photo URLs in index.html')">Select</button></div>
+    <div class="section-label">RECENTS · 6 PHOTOS</div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <p class="hint">Tip: replace the emoji tiles with your own image links by editing the <code>photos</code> list in the code. Use images you have permission to share.</p>
+  </section>
+
+  <section class="screen" id="social">
+    <div class="topbar"><button class="back" onclick="showScreen('home')">‹</button><h2>Instagram</h2><button class="pill" onclick="toast('Sample AU feed ♡')">♡</button></div>
+    <div id="feed"></div>
+  </section>
+  <div class="bottom-home" onclick="showScreen('home')"></div>
+</div>
+<script>
+const chats = [
+ {id:'gavi',name:'Gavian',emoji:'🖤',time:'now',preview:'udah makan belum?',messages:[['in','lo udah makan belum?'],['out','belum, baru pulang'],['in','yaudah makan dulu. kabarin gue nanti.'],['out','iya, bawel banget sih'],['in','concern dibilang bawel. noted.']]},
+ {id:'shasa',name:'Shanette',emoji:'🦋',time:'9:32 PM',preview:'HAHAHAHA STOP',messages:[['in','gue punya cerita 😭'],['out','apaan lagi?'],['in','HAHAHAHA STOP'],['out','LO YANG MULAI CERITA WOI']]},
+ {id:'group',name:'the usual suspects 🫂',emoji:'🫧',time:'8:15 PM',preview:'Junan: siapa yang pesen kopi?',messages:[['in','Junan: siapa yang pesen kopi?'],['in','Ajuy: dudu aku, Mas'],['out','Gavi: bukan saya'],['in','Junan: LAH TERUS SIAPA ANJIR']]},
+ {id:'unknown',name:'Unknown',emoji:'🌙',time:'Yesterday',preview:'can we talk?',messages:[['in','can we talk?'],['out','about what?'],['in','us. if you still want to.']]}
+];
+const calls=[['Gavian','🖤','Outgoing · Mobile','9:41 PM'],['Shanette','🦋','Incoming · Mobile','Yesterday'],['Unknown','🌙','Missed call','Monday']];
+const contacts=[['Junan','🎸'],['Ajuy','🧋'],['Biel','🧸']];
+const photos=[['🌅','sunset'],['🫶','us'],['☕','coffee'],['🌷','flowers'],['🌃','late night'],['🐈','little guy']];
+const posts=[
+ {name:'shanette.jpg',emoji:'🦋',time:'2 hours ago',photo:'🌷',caption:'some days feel a little softer than others ♡',likes:128},
+ {name:'gav.elio',emoji:'🖤',time:'Yesterday',photo:'🌃',caption:'late night drives, no destination.',likes:89},
+ {name:'theusuals',emoji:'🫧',time:'3 days ago',photo:'☕',caption:'proof that we did, in fact, leave the house.',likes:204}
+];
+let currentChat=null;
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('chatView').classList.remove('active');document.getElementById(id).classList.add('active');}
+function openApp(id){showScreen(id)}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',2200)}
+function renderChats(filter=''){const list=document.getElementById('chatList');list.innerHTML='';chats.filter(c=>c.name.toLowerCase().includes(filter.toLowerCase())).forEach(c=>{const b=document.createElement('button');b.className='chatrow';b.innerHTML=`<div class="avatar">${c.emoji}</div><div class="rowmain"><div class="rowname">${c.name}</div><div class="preview">${c.preview}</div></div><div class="time">${c.time}</div>`;b.onclick=()=>openChat(c.id);list.appendChild(b)})}
+function filterChats(v){renderChats(v)}
+function openChat(id){currentChat=chats.find(c=>c.id===id);document.getElementById('chatName').textContent=currentChat.name;document.getElementById('chatAvatar').textContent=currentChat.emoji;renderMessages();document.getElementById('chatView').classList.add('active')}
+function closeChat(){document.getElementById('chatView').classList.remove('active')}
+function renderMessages(){const box=document.getElementById('messages');box.innerHTML='';currentChat.messages.forEach(m=>{const el=document.createElement('div');el.className='bubble '+m[0];el.textContent=m[1];box.appendChild(el)});box.scrollTop=box.scrollHeight}
+function sendMessage(e){e.preventDefault();const input=document.getElementById('messageInput');const val=input.value.trim();if(!val||!currentChat)return;currentChat.messages.push(['out',val]);currentChat.preview=val;input.value='';renderMessages();renderChats();/* local demo only: messages reset on refresh */}
+function renderCalls(){document.getElementById('callList').innerHTML=calls.map(c=>`<div class="callrow"><div class="avatar">${c[1]}</div><div class="rowmain"><div class="rowname">${c[0]}</div><div class="preview">${c[2]}</div></div><div class="time">${c[3]}</div></div>`).join('');document.getElementById('contactList').innerHTML=contacts.map(c=>`<button class="callrow" style="background:transparent;color:inherit" onclick="toast('Calling ${c[0]}… (demo only)')"><div class="avatar">${c[1]}</div><div class="rowmain"><div class="rowname">${c[0]}</div><div class="preview">mobile</div></div><span style="color:#3697e8">☎</span></button>`).join('')}
+function renderGallery(){document.getElementById('galleryGrid').innerHTML=photos.map(p=>`<div class="photo" onclick="toast('${p[1]} · sample photo')">${p[0]}<span>♡</span></div>`).join('')}
+function renderFeed(){document.getElementById('feed').innerHTML=posts.map((p,i)=>`<article class="post"><div class="post-user"><div class="avatar">${p.emoji}</div><div style="flex:1">${p.name}<div class="small" style="font-weight:400">${p.time}</div></div><span>•••</span></div><div class="post-image">${p.photo}</div><button class="like" onclick="likePost(${i},this)">♡ <span>${p.likes}</span> likes</button><p><strong>${p.name}</strong> ${p.caption}</p><div class="small">View all comments</div></article>`).join('')}
+function likePost(i,el){posts[i].likes++;el.innerHTML='♥ <span>'+posts[i].likes+'</span> likes';el.style.color='#ed5790'}
+function updateClock(){const now=new Date();const t=now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});document.getElementById('statusTime').textContent=t;document.getElementById('lockTime').textContent=t;const date=now.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'});document.getElementById('lockDate').textContent=date;document.getElementById('todayLabel').textContent=date}
+renderChats();renderCalls();renderGallery();renderFeed();updateClock();setInterval(updateClock,30000);
+</script>
+</body>
+</html>
